@@ -1,0 +1,8 @@
+# dsh-model-chain bundle patch.
+#
+# 一行 insert：Host 半身注册自己的 llm 路由（model-chain）；浏览器半身由
+# package.json 的 dsh.client 声明，绑在 name 为裸包名的这一行上。
+- insert:
+    - id: model-chain
+      name: 'dsh-model-chain'
+      config: {}

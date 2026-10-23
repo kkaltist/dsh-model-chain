@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tgz
+*.zip
+.env
+.env.*
+!.env.example
+*.log
+state.json*
+*.tmp

@@ -1,0 +1,62 @@
+{
+  "name": "dsh-model-chain",
+  "version": "0.1.1",
+  "private": false,
+  "type": "module",
+  "description": "模型链：把若干模型按顺序串成一条降级链，第一个失败就换下一个，对调用方只暴露一个模型 ID；成员在设置页「模型链」里从当前可用模型勾选。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/adapter.js",
+    "lib/store.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "docs/REVIEW.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "llm",
+    "fallback",
+    "chain",
+    "routing"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "license": "MIT",
+  "author": "kkaltist",
+  "homepage": "https://github.com/kkaltist/dsh-model-chain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkaltist/dsh-model-chain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kkaltist/dsh-model-chain/issues"
+  },
+  "scripts": {
+    "test": "node scripts/smoke.mjs && node scripts/label-smoke.mjs && node --test scripts/regression.test.mjs",
+    "check": "node --check index.js && node --check client.js && node --check lib/adapter.js && node --check lib/store.js"
+  }
+}
